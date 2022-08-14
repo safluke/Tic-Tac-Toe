@@ -29,10 +29,11 @@ const initBoard=(()=>{
 const updateArray=(evt)=>{
     if(state.finished===false){
 
-    round=state.round++
+    
     index=evt.currentTarget.myParam
     
     if (state.selection[index] ===0){
+        round=state.round++
         
         if (round%2===0===true){
             cell[index].textContent=("X")
@@ -45,19 +46,20 @@ const updateArray=(evt)=>{
         
     }
     let winner = checkWinner()
-    if (winner===1 || winner===2){
-        endGame(winner)
+    if (winner===true){
+    if (round%2===0===true){
+        endGame(1)}
+    else{endGame(2)}
 
-    
+    }
     }
     
-    let draw=checkDraw()
-        if(draw===false)
-        {endGame(draw)}
-}}
+    checkDraw()
+}
 
 const checkWinner=()=>{
     for (let num = 1; num <3; num++) {
+        console.log(num)
         if ((state.selection[0]=== num && state.selection[1] === num && state.selection[2] === num)
         || (state.selection[3]=== num && state.selection[4] === num && state.selection[5] === num)
         || (state.selection[6]=== num && state.selection[7] === num && state.selection[8] === num)
@@ -66,25 +68,29 @@ const checkWinner=()=>{
         || (state.selection[2]=== num && state.selection[5] === num && state.selection[8] === num)
         || (state.selection[0]=== num && state.selection[4] === num && state.selection[8] === num)
         || (state.selection[2]=== num && state.selection[4] === num && state.selection[6] === num)
-        ){return num
-       
-        }else{return false}
+        ){return true}
         
     }
 }
 
 const checkDraw=()=>{
-    check=true
+    let check=0
     state.selection.forEach(element => {
         if (element!==0){
-            check=false
+            check++
         }
-    return check
-    });
-}
+        if (check===state.selection.length){
+            endGame(check)
+        }
+    }
+)}
+
+
+
 
 
 const endGame=(winner)=>{
+    console.log(winner)
 
     console.log(winner)
     state.finished=true
@@ -95,14 +101,15 @@ const endGame=(winner)=>{
     const container = document.querySelector(".container")
     container.append(win)
     if (winner===1){
-    win.textContent=("O Wins!")}
+        win.textContent=("X Wins!")
+        win.addEventListener('click',reset,);}
     if (winner===2){
-    win.textContent=("X Wins!")
-    }
-    else{
+        win.textContent=("O Wins!")
+        win.addEventListener('click',reset,);}
+    if(winner===9){
         win.textContent=("Draw")
-    }
-    win.addEventListener('click',reset);
+        win.addEventListener('click',reset,);}
+    
 }
 //retrieve cell info
 
@@ -110,8 +117,8 @@ const endGame=(winner)=>{
 reset=(evt)=>{
     state.finished=false
     state.selection=Array(9).fill(0)
-    reset=document.querySelector(".win")
-    reset.parentNode.removeChild(reset)
+    resetpop=document.querySelector(".win")
+    resetpop.parentNode.removeChild(resetpop)
 
     index=evt.currentTarget.myParam
     
@@ -136,3 +143,4 @@ for (let index = 0; index < cell.length; index++) {
 
 //add a winner banner
 //reset array to 0 for reset
+//click event 2nd time doesnt work
