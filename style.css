@@ -1,31 +1,33 @@
-
-body{
-    background-color:black;
+body {
+    background-color: black;
     text-align: center;
     justify-content: center;
     color: aliceblue;
 
 
 }
-h1{
-font-size: 3rem;
-padding: 15px 0;
+
+h1 {
+    font-size: 3rem;
+    padding: 15px 0 0 0;
 
 }
-.container{
-    
-    display:grid;
-    width:60vh;
-    height:60vh;  
+
+.container {
+
+    display: grid;
+    width: 60vh;
+    height: 60vh;
     margin: 0 auto;
+    padding-top: 20px;
 
 
- 
+
 
 }
 
-.grid{
-    
+.grid {
+
     width: auto;
     height: auto;
     display: grid;
@@ -33,37 +35,45 @@ padding: 15px 0;
     border: wheat solid 1px;
 }
 
-.cell{
+.cell {
 
     border: wheat solid 1px;
     font-size: 8vh;
     min-height: 20vh;
     text-align: center;
     line-height: 20vh;
-   
+
 }
 
-.cell:hover{
-    background-color:coral;
+.cell:hover {
+    background-color: coral;
     cursor: pointer;
 }
 
-.cell:active{
-    background-color:white;
+.cell:active {
+    background-color: white;
 }
 
-.win{
-    position:relative;
+.win {
+    position: relative;
     height: 20vh;
     width: 100%;
-    background-color:coral;
+    background-color: coral;
     bottom: 40.4vh;
     text-align: center;
     line-height: 20vh;
     font-size: 10vh;
     color: black;
+    opacity: 0.9;
 }
 
-.win:hover{
+.win:hover {
     cursor: pointer;
+}
+
+.settings {
+    font-size: 20px;
+    PADDING: 2PX;
+    border-color: wheat solid;
+
 }
