@@ -228,10 +228,10 @@ for (let index = 0; index < cell.length; index++) {
 
 toggle = (player) => {
     if (player == "Computer") {
-        state.playerComputer = true
+        state.playerComputer = false
     }
     if (player == "Human") {
-        state.playerComputer = false
+        state.playerComputer = true
     }
     reset()
 }
