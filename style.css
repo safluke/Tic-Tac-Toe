@@ -1,0 +1,50 @@
+body{
+    background-color:cornsilk;
+}
+
+.container{
+    display:grid;
+    width:60vh;
+    height:60vh;   
+    
+
+}
+
+.grid{
+    
+    width: auto;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: wheat solid 1px;
+}
+
+.cell{
+
+    border: wheat solid 1px;
+    font-size: 8vh;
+    min-height: 20vh;
+    text-align: center;
+    line-height: 20vh;
+   
+}
+
+.cell:hover,.win:hover{
+    background-color: aqua;
+    cursor: pointer;
+}
+
+.cell:active,.win:hover{
+    background-color:brown;
+}
+
+.win{
+    position:relative;
+    height: 20vh;
+    width: 100%;
+    background-color: aliceblue;
+    bottom: 40.5vh;
+    text-align: center;
+    line-height: 20vh;
+    font-size: 10vh;
+}
