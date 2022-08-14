@@ -1,12 +1,26 @@
-body{
-    background-color:cornsilk;
-}
 
+body{
+    background-color:black;
+    text-align: center;
+    justify-content: center;
+    color: aliceblue;
+
+
+}
+h1{
+font-size: 3rem;
+padding: 15px 0;
+
+}
 .container{
+    
     display:grid;
     width:60vh;
-    height:60vh;   
-    
+    height:60vh;  
+    margin: 0 auto;
+
+
+ 
 
 }
 
@@ -29,23 +43,27 @@ body{
    
 }
 
-.cell:hover,.win:hover{
-    background-color: aqua;
+.cell:hover{
+    background-color:coral;
     cursor: pointer;
 }
 
-.cell:active,.win:hover{
-    background-color:brown;
+.cell:active{
+    background-color:white;
 }
 
 .win{
     position:relative;
     height: 20vh;
     width: 100%;
-    background-color: aliceblue;
-    bottom: 40.5vh;
+    background-color:coral;
+    bottom: 40.4vh;
     text-align: center;
     line-height: 20vh;
     font-size: 10vh;
+    color: black;
 }
- 
+
+.win:hover{
+    cursor: pointer;
+}

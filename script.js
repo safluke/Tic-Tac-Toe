@@ -5,8 +5,6 @@ const state={
     finished:false
 }
 
-console.log(state.selection)
-
 
 
 const initBoard=(()=>{
@@ -52,14 +50,13 @@ const updateArray=(evt)=>{
     else{endGame(2)}
 
     }
-    }
     
-    checkDraw()
+    if(winner!==true){
+    checkDraw()}}
 }
 
 const checkWinner=()=>{
     for (let num = 1; num <3; num++) {
-        console.log(num)
         if ((state.selection[0]=== num && state.selection[1] === num && state.selection[2] === num)
         || (state.selection[3]=== num && state.selection[4] === num && state.selection[5] === num)
         || (state.selection[6]=== num && state.selection[7] === num && state.selection[8] === num)
@@ -69,6 +66,8 @@ const checkWinner=()=>{
         || (state.selection[0]=== num && state.selection[4] === num && state.selection[8] === num)
         || (state.selection[2]=== num && state.selection[4] === num && state.selection[6] === num)
         ){return true}
+
+    
         
     }
 }
@@ -92,7 +91,6 @@ const checkDraw=()=>{
 const endGame=(winner)=>{
     console.log(winner)
 
-    console.log(winner)
     state.finished=true
 
     //winner banner
@@ -101,12 +99,15 @@ const endGame=(winner)=>{
     const container = document.querySelector(".container")
     container.append(win)
     if (winner===1){
+        console.log("x")
         win.textContent=("X Wins!")
         win.addEventListener('click',reset,);}
     if (winner===2){
+        console.log("o")
         win.textContent=("O Wins!")
         win.addEventListener('click',reset,);}
     if(winner===9){
+        console.log("draw")
         win.textContent=("Draw")
         win.addEventListener('click',reset,);}
     
@@ -141,6 +142,4 @@ for (let index = 0; index < cell.length; index++) {
 }
 
 
-//add a winner banner
-//reset array to 0 for reset
-//click event 2nd time doesnt work
+//Integrate Minimax algorith - computer
